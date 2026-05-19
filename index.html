@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy & Croatia — June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F2EA;
+    --warm-white: #FDFBF7;
+    --terracotta: #C0552A;
+    --terracotta-light: #D9784F;
+    --adriatic: #2E6B8A;
+    --adriatic-light: #4A90A4;
+    --charcoal: #2A2520;
+    --mid: #5C4F42;
+    --muted: #8C7B6E;
+    --gold: #C49A28;
+    --sage: #7A8C6A;
+    --divider: #E0D5C8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 80px 60px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 10% 80%, rgba(192,85,42,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 20%, rgba(46,107,138,0.20) 0%, transparent 55%);
+  }
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta-light);
+  }
+  .hero-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: rgba(247,242,234,0.60);
+    margin-top: 16px;
+  }
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 28px 0;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(247,242,234,0.45);
+    margin-bottom: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .hero-meta-item span {
+    font-size: 15px;
+    color: rgba(247,242,234,0.90);
+    font-weight: 400;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    padding: 52px 60px 0;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .section-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .section-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+  .section-header .flag {
+    display: inline-block;
+    font-size: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  /* ── DAY CARDS ── */
+  .days-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 60px 0;
+  }
+
+  .day-card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    margin-bottom: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .day-label {
+    background: var(--charcoal);
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 12px;
+    text-align: center;
+    min-height: 100%;
+  }
+  .day-label .dow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(247,242,234,0.45);
+    margin-bottom: 4px;
+  }
+  .day-label .date-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .day-label .month {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(247,242,234,0.55);
+    margin-top: 2px;
+  }
+
+  /* Italy days */
+  .italy .day-label { background: var(--terracotta); }
+  /* Croatia days */
+  .croatia .day-label { background: var(--adriatic); }
+  /* travel days */
+  .travel .day-label { background: var(--charcoal); }
+
+  .day-body {
+    background: var(--warm-white);
+    padding: 24px 30px;
+    border-left: 3px solid var(--divider);
+  }
+  .italy .day-body { border-left-color: rgba(192,85,42,0.25); }
+  .croatia .day-body { border-left-color: rgba(46,107,138,0.25); }
+
+  .day-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .day-region {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  /* Items */
+  .items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--mid);
+  }
+  .item-icon {
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .item strong {
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+  .item a {
+    color: var(--terracotta);
+    text-decoration: none;
+  }
+  .item a:hover { text-decoration: underline; }
+
+  /* Highlight badge — the "needs ideas" placeholder becomes a suggestion badge */
+  .badge {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-idea {
+    background: rgba(196,154,40,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(196,154,40,0.35);
+  }
+  .badge-booked {
+    background: rgba(122,140,106,0.15);
+    color: var(--sage);
+    border: 1px solid rgba(122,140,106,0.35);
+  }
+
+  /* Suggestion boxes — filled-in ideas */
+  .suggestion {
+    margin-top: 14px;
+    background: linear-gradient(135deg, rgba(247,242,234,0.9), rgba(253,251,247,0.9));
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    padding: 16px 18px;
+    position: relative;
+  }
+  .suggestion::before {
+    content: '★ SUGGESTED';
+    position: absolute;
+    top: -9px;
+    left: 14px;
+    background: var(--gold);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .suggestion-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+  .suggestion p {
+    font-size: 13.5px;
+    color: var(--mid);
+    line-height: 1.55;
+    margin-bottom: 6px;
+  }
+  .suggestion p:last-child { margin-bottom: 0; }
+  .suggestion a {
+    color: var(--terracotta);
+    font-size: 12px;
+    text-decoration: none;
+  }
+  .suggestion a:hover { text-decoration: underline; }
+
+  /* Hotel callout */
+  .hotel-box {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: rgba(46,107,138,0.06);
+    border-left: 3px solid var(--adriatic-light);
+    border-radius: 2px;
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+  .hotel-box.italy { 
+    background: rgba(192,85,42,0.06);
+    border-left-color: var(--terracotta-light);
+  }
+  .hotel-box strong { color: var(--charcoal); display: block; margin-bottom: 2px; }
+
+  /* ── NOTES SECTION ── */
+  .tips {
+    max-width: 960px;
+    margin: 50px auto 60px;
+    padding: 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .tip-card {
+    background: var(--warm-white);
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .tip-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .tip-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .tip-card li {
+    font-size: 13.5px;
+    color: var(--mid);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .tip-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(247,242,234,0.40);
+    text-align: center;
+    padding: 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── SPACER ── */
+  .spacer { height: 32px; }
+  .spacer-sm { height: 16px; }
+
+  @media (max-width: 700px) {
+    .hero { padding: 50px 24px 44px; }
+    .hero-meta { gap: 28px; }
+    .section-header, .days-container, .tips { padding-left: 20px; padding-right: 20px; }
+    .tips { grid-template-columns: 1fr; }
+    .day-card { grid-template-columns: 64px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Private Travel Itinerary</div>
+    <h1>Italy &amp;<br><em>Croatia</em></h1>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <label>Dates</label>
+        <span>May 29 – June 8, 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Regions</label>
+        <span>Tuscany · Rome · Split</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Duration</label>
+        <span>10 nights · 11 days</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Transport</label>
+        <span>Rental car — Italy &amp; Croatia</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ TUSCANY ══ -->
+<div class="section-header">
+  <h2>Part One</h2>
+  <h3><span class="flag">🇮🇹</span>Tuscany &amp; Rome</h3>
+</div>
+
+<div class="days-container">
+
+  <!-- May 29 -->
+  <div class="day-card travel">
+    <div class="day-label">
+      <div class="dow">Fri</div>
+      <div class="date-num">29</div>
+      <div class="month">May</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Departure</div>
+      <div class="day-region">Pittsburgh → Rome (FCO)</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">✈️</span><span>Fly out from Pittsburgh at <strong>9:45 PM</strong></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- May 30 -->
+  <div class="day-card italy">
+    <div class="day-label">
+      <div class="dow">Sat</div>
+      <div class="date-num">30</div>
+      <div class="month">May</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Arrival → Montepulciano</div>
+      <div class="day-region">Rome FCO · Tuscany</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🛬</span><span>Arrive Rome FCO at <strong>4:30 PM</strong></span></li>
+        <li class="item"><span class="item-icon">🚗</span><span>Pick up rental from <strong>Avis</strong> at airport</span></li>
+        <li class="item"><span class="item-icon">🛣️</span><span>Drive ~2.5 hrs to Montepulciano — arrive around 8:30 PM</span></li>
+      </ul>
+      <div class="hotel-box italy">
+        <strong>Villa Poggiano</strong>
+        Via di Poggiano, 7 · Montepulciano 53045<br>
+        +39 0578 758292 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70191e161f3006191c1c11001f171719111e1f5e131f1d">[email&#160;protected]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- May 31 -->
+  <div class="day-card italy">
+    <div class="day-label">
+      <div class="dow">Sun</div>
+      <div class="date-num">31</div>
+      <div class="month">May</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">E-Bike Wine Day <span class="badge badge-idea">Ideas Added</span></div>
+      <div class="day-region">Montepulciano · Vino Nobile Country</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🚲</span><span><strong>Urban Bikery e-bike wine tour</strong> — self-guided ride from Piazza Grande through countryside to 2 Vino Nobile cellars (8 wines total). Winery reservations included. ~Full day.</span></li>
+        <li class="item"><span class="item-icon">📍</span><span>Via Ricci 2, Montepulciano — 10 meters from Piazza Grande</span></li>
+        <li class="item"><span class="item-icon">🍷</span><span>Wineries include Boscarelli, Canneto, Salcheto &amp; others — selected at booking</span></li>
+      </ul>
+      <div class="suggestion">
+        <div class="suggestion-title">Urban Bikery — Wine Tour E-Bike Experience</div>
+        <p>Consistently rated the top activity in Montepulciano on TripAdvisor. E-bikes handle the hilly terrain; you follow a GPS route through vineyards to two private cellar tastings. Ends around 6:30 PM. ~€190/person for private option; group options cheaper.</p>
+        <p><a href="https://www.getyourguide.com/montepulciano-l2089/montepulciano-wine-tour-e-bike-experience-t210030/" target="_blank">Book via GetYourGuide →</a> &nbsp;|&nbsp; <a href="http://www.urbanbikery.it/en/wine-tour-ebike-experience/" target="_blank">urbanbikery.it →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- June 1 -->
+  <div class="day-card italy">
+    <div class="day-label">
+      <div class="dow">Mon</div>
+      <div class="date-num">1</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Cooking Class Day</div>
+      <div class="day-region">Tuscany · Montepulciano area</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🌅</span><span><strong>Morning drive</strong> — explore the Val d'Orcia: browse <strong>Pienza</strong> for pecorino cheese, wander the Renaissance lanes. Park at <strong>Parcheggio Via del Cassello</strong> (next to the city walls, closest lot — arrive early, only ~20 spots). Fallback: <strong>Punto Sosta Comunale</strong>, 5-min walk, card accepted.</span></li>
+        <li class="item"><span class="item-icon">👩‍🍳</span><span><strong>Cooking Class 11 AM – 3 PM</strong> — <a href="https://www.lunchwithraffaella.com/cooking-classes" target="_blank">Lunch with Raffaella</a></span></li>
+        <li class="item"><span class="item-icon">📸</span><span><strong>Cappella Vitaleta stop after class</strong> — iconic cypress-framed chapel between San Quirico and Pienza; best in afternoon light</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- June 2 -->
+  <div class="day-card italy">
+    <div class="day-label">
+      <div class="dow">Tue</div>
+      <div class="date-num">2</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Truffle Hunting &amp; Val d'Orcia Afternoon</div>
+      <div class="day-region">Tuscany · Montepulciano · Monticchiello</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🐕</span><span><strong>Morning: Truffle Hunting</strong> — 2.5 hrs with a truffle hunter and trained dog through the Montepulciano countryside. Arrange through Villa Poggiano. €50/person (€300 for group of 6).</span></li>
+        <li class="item"><span class="item-icon">🍽️</span><span><strong>Lunch in Montepulciano</strong> — pair your truffle finds with local wine. Options to review:
+          <ul style="margin-top:8px; padding-left:4px; list-style:none; display:flex; flex-direction:column; gap:6px;">
+            <li style="font-size:13.5px; color:var(--mid);"><strong style="color:var(--charcoal);">1. La Grotta</strong> — Michelin-recommended, 1500s building facing the Temple of San Biagio, truffle pasta a specialty. Reservations essential. <em>Via di S. Biagio, 15</em></li>
+            <li style="font-size:13.5px; color:var(--mid);"><strong style="color:var(--charcoal);">2. Rosso Rubino Trattoria</strong> — small, intimate, outstanding quality pasta and meat dishes, fairly priced, good local wine list. <em>Via Opio nel Corso, 34</em></li>
+            <li style="font-size:13.5px; color:var(--mid);"><strong style="color:var(--charcoal);">3. Osteria del Conte</strong> — pici pasta, T-bone steak, friendly staff, outdoor seating. Good for a group of 6. <em>Main street</em></li>
+            <li style="font-size:13.5px; color:var(--mid);"><strong style="color:var(--charcoal);">4. La Bottega del Nobile</strong> — exposed-stone cellar, creative Tuscan dishes, terrace on the busiest corner of town. <em>Via di Gracciano nel Corso, 95</em></li>
+            <li style="font-size:13.5px; color:var(--mid);"><strong style="color:var(--charcoal);">5. Trattoria di Cagnano</strong> — rustic, homemade pici pasta, shaded terrace, relaxed pace and very reasonable prices. <em>Via di Cagnano</em></li>
+          </ul>
+        </span></li>
+        <li class="item"><span class="item-icon">🏰</span><span><strong>Afternoon: Monticchiello</strong> — tiny medieval fortified village 10 min from Pienza, far fewer tourists than the main Val d'Orcia towns; intact walls, a 13th-century church, and stunning valley views</span></li>
+        <li class="item"><span class="item-icon">🌅</span><span><strong>Evening: Sunset wine in Montepulciano</strong> — back to the hotel or stop at a wine bar on Piazza Grande for Vino Nobile as the sun goes down over the valley</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- June 3 -->
+  <div class="day-card travel">
+    <div class="day-label">
+      <div class="dow">Wed</div>
+      <div class="date-num">3</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Drive to Rome</div>
+      <div class="day-region">Tuscany → Rome FCO</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🚗</span><span><strong>Morning:</strong> Drive back to Rome (~3 hrs)</span></li>
+        <li class="item"><span class="item-icon">🚙</span><span>Drop off rental car at airport</span></li>
+        <li class="item"><span class="item-icon">🏨</span><span>Check into <strong>Hilton Rome Airport</strong> — 30-min train to city center</span></li>
+        <li class="item"><span class="item-icon">🌆</span><span><strong>Afternoon/evening:</strong> Train into Rome — explore the neighborhood, Piazza Navona, Pantheon, Trastevere, or Trevi Fountain area</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- June 4 -->
+  <div class="day-card italy">
+    <div class="day-label">
+      <div class="dow">Thu</div>
+      <div class="date-num">4</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Rome Morning → Fly to Split <span class="badge badge-idea">Ideas Added</span></div>
+      <div class="day-region">Rome · Colosseum · FCO → Split</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🏛️</span><span><strong>Expert Guided Tour — Colosseum Arena Floor OR Underground + Roman Forum</strong> <span class="badge badge-booked">Booked</span> — 9:00 AM start · $118/person</span></li>
+        <li class="item"><span class="item-icon">📍</span><span>Meet at P.za del Colosseo, 21, 00184 Roma RM, Italy</span></li>
+        <li class="item"><span class="item-icon">🍝</span><span><strong>Lunch near the Forum</strong> — then head back to FCO for bags</span></li>
+        <li class="item"><span class="item-icon">✈️</span><span>Fly Rome → Split at <strong>6:00 PM</strong></span></li>
+        <li class="item"><span class="item-icon">🛬</span><span>Arrive Split at <strong>7:00 PM</strong> — pick up rental car</span></li>
+        <li class="item"><span class="item-icon">🚗</span><span>30-min drive to hotel</span></li>
+      </ul>
+      <div class="hotel-box">
+        <strong>Le Méridien Lav, Split</strong>
+        Grljevacka 2A, Podstrana, 21312 Split
+      </div>
+    </div>
+  </div>
+
+</div><!-- /days-container -->
+
+
+<!-- ══ CROATIA ══ -->
+<div class="spacer"></div>
+<div class="section-header">
+  <h2>Part Two</h2>
+  <h3><span class="flag">🇭🇷</span>Croatia — Dalmatian Coast</h3>
+</div>
+
+<div class="days-container">
+
+  <!-- June 5 -->
+  <div class="day-card croatia">
+    <div class="day-label">
+      <div class="dow">Fri</div>
+      <div class="date-num">5</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Bosnia Day Trip — Mostar &amp; Kravice Falls <span class="badge badge-idea">Ideas Added</span></div>
+      <div class="day-region">Bosnia & Herzegovina · Mostar · Kravice Falls</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🌉</span><span><strong>Mostar, Bosnia</strong> — UNESCO-listed Stari Most (Old Bridge), Turkish coffee in the bazaar, East-meets-West Balkan culture. ~2 hrs from Split.</span></li>
+        <li class="item"><span class="item-icon">💧</span><span><strong>Kravice Waterfalls</strong> — dramatic 25-meter horseshoe falls into emerald pools; swimming allowed. Often described as "better than Krka, for less money."</span></li>
+      </ul>
+      <div class="suggestion">
+        <div class="suggestion-title">Option A: Mostar + Kravice Falls Day Trip (Recommended)</div>
+        <p>This combo is consistently rated one of the best day trips from Split — a genuinely different cultural experience crossing into Bosnia. Guided group tours run ~€45–60/person all-in, with an English-speaking guide handling border crossings. Bring cash (EUR) for Bosnia.</p>
+        <p><a href="https://www.viator.com/tours/Split/Mostar-and-Kravice-Waterfalls-Full-Day-from-Split/d6710-3316MOSTAR" target="_blank">Book via Viator →</a></p>
+      </div>
+      <div class="suggestion" style="margin-top: 10px;">
+        <div class="suggestion-title" style="color: var(--adriatic);">Option C: Kravice Falls + Split Old Town or Beach Day</div>
+        <p>Skip Mostar entirely — drive to Kravice Falls in the morning (self-drive, ~1.5 hrs from Split), then head back and spend the afternoon in <strong>Split's Diocletian's Palace old town</strong> for a wander, lunch, and drinks — or simply back to the hotel beach at Le Méridien Lav for a relaxed afternoon. Good option if the group wants a lighter day before the Brač ferry.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- June 6 -->
+  <div class="day-card croatia">
+    <div class="day-label">
+      <div class="dow">Sat</div>
+      <div class="date-num">6</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Blue Cave &amp; 5 Islands Boat Tour <span class="badge badge-booked">Booked</span></div>
+      <div class="day-region">Croatia · Vis · Hvar · Bisevo</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">🚢</span><span><strong>All-day boat tour</strong> — Blue Cave (Biševo) and 5 Islands</span></li>
+        <li class="item"><span class="item-icon">📍</span><span><strong>Pickup at the Le Méridien Lav pier</strong></span></li>
+        <li class="item"><span class="item-icon">🔗</span><span>Tour info: <a href="https://www.polaris-yachting.com/blue-cave-5-islands/" target="_blank">polaris-yachting.com →</a></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- June 7 -->
+  <div class="day-card croatia">
+    <div class="day-label">
+      <div class="dow">Sun</div>
+      <div class="date-num">7</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Brač Island — Full Day Loop</div>
+      <div class="day-region">Croatia · Brač Island</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">⛴️</span><span><strong>Ferry Split → Supetar</strong> — departs 7:30 AM, ~1 hr crossing. Take rental car on the car ferry. <span class="badge badge-booked">Buy tickets at jadrolinija.hr — arrive 30–60 min early</span></span></li>
+        <li class="item"><span class="item-icon">☕</span><span><strong>Supetar</strong> — arrive, grab coffee on the seafront</span></li>
+        <li class="item"><span class="item-icon">🌲</span><span><strong>Nerežišća</strong> — former island capital with Baroque church (c.1750); spot the famous 150-year-old pine bonsai tree growing from the roof of the small square chapel</span></li>
+        <li class="item"><span class="item-icon">🏔️</span><span><strong>Vidova Gora</strong> — 15-min drive up to the highest peak in all Croatian islands; panoramic views over Hvar and the Adriatic</span></li>
+        <li class="item"><span class="item-icon">🏖️</span><span><strong>Zlatni Rat (Golden Horn), Bol</strong> — Croatia's most iconic beach; swim, sunbathe, grab a cocktail. Lunch in Bol town.</span></li>
+        <li class="item"><span class="item-icon">🏘️</span><span><strong>Pučišća</strong> — 30-min drive from Bol; stunning white-stone seafront village built from the famous Brač stone (the same stone used for Diocletian's Palace and the White House)</span></li>
+        <li class="item"><span class="item-icon">🏺</span><span><strong>Škrip</strong> — oldest settlement on the island (~3,000 years), known as "Croatian Mycenae"; traces of ancient Greeks, Illyrians, and Romans in a few square meters. Museum of Brač Island.</span></li>
+        <li class="item"><span class="item-icon">🍽️</span><span><strong>Dinner in Splitska</strong> — coastal village at the foot of Škrip; historically the port for shipping Brač stone to build Diocletian's Palace. Seafood by the sea to end the day.</span></li>
+        <li class="item"><span class="item-icon">🔗</span><span>Full route reference: <a href="https://myislandbrac.com/full-day-on-island-brac/" target="_blank">myislandbrac.com →</a></span></li>
+        <li class="item"><span class="item-icon">⛴️</span><span><strong>Return ferry Supetar → Split</strong> — evening crossing</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spacer-sm"></div>
+
+  <!-- June 8 -->
+  <div class="day-card travel">
+    <div class="day-label">
+      <div class="dow">Mon</div>
+      <div class="date-num">8</div>
+      <div class="month">Jun</div>
+    </div>
+    <div class="day-body">
+      <div class="day-title">Fly Home</div>
+      <div class="day-region">Split → Pittsburgh</div>
+      <ul class="items">
+        <li class="item"><span class="item-icon">✈️</span><span>Depart Split (SPU) at <strong>11:45 AM</strong> — via London Heathrow (LHR, 3hr 10min layover)</span></li>
+        <li class="item"><span class="item-icon">🏠</span><span>Arrive Pittsburgh (PIT) at <strong>7:50 PM</strong> — total travel 14h 5m</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /days-container -->
+
+
+<!-- ══ TIPS ══ -->
+<div class="spacer"></div>
+<div class="tips">
+
+  <div class="tip-card">
+    <h4>Book Now — Before You Go</h4>
+    <ul>
+      <li>Urban Bikery e-bike wine tour (Montepulciano) — fills up fast in June</li>
+      <li>Expert Guided Colosseum Tour (June 4) — booked ✓ · 9:00 AM start</li>
+      <li>Blue Cave boat tour (June 6) — already booked ✓</li>
+      <li>Mostar / Kravice Falls guided day trip (if choosing Option A)</li>
+      <li>Lunch with Raffaella cooking class (June 1) — already booked ✓</li>
+    </ul>
+  </div>
+
+  <div class="tip-card">
+    <h4>Money &amp; Logistics</h4>
+    <ul>
+      <li>Bosnia (Mostar) — bring cash in EUR; cards widely refused</li>
+      <li>Krka National Park — entrance fees cash only (EUR) in June: €30/adult</li>
+      <li>Brač ferry — buy tickets same-day, car not needed (walk-on)</li>
+      <li>Rome in June — Colosseum best visited before 10 AM; heat peaks 3–5 PM</li>
+      <li>Croatia driving — toll roads accept cards; keep your return ferry timing in mind</li>
+    </ul>
+  </div>
+
+  <div class="tip-card">
+    <h4>Tuscany Essentials</h4>
+    <ul>
+      <li>Monticchiello — tiny walled village 10 min from Pienza; far fewer crowds than the main Val d'Orcia towns</li>
+      <li>Truffle hunting — arrange through Villa Poggiano; request Tuesday availability when booking</li>
+    </ul>
+  </div>
+
+  <div class="tip-card">
+    <h4>Croatia Tips</h4>
+    <ul>
+      <li>Split old town (Diocletian's Palace) — explore the morning of June 4 arrival or June 8 if time allows</li>
+      <li>Blue Cave boat tours — wear a swimsuit; swimming at most island stops</li>
+      <li>Brač ferry (June 5) — Split→Supetar departs 7:30 AM; <strong>car boarding is first-come first-served</strong>, arrive 30–60 min early in peak June season. Buy tickets at jadrolinija.hr.</li>
+      <li>Le Méridien Lav — 30 min from Split center; ask hotel about water taxi option</li>
+      <li>Croatian currency — kuna replaced by EUR in 2023; all straightforward now</li>
+    </ul>
+  </div>
+
+</div>
+
+
+<footer>Italy &amp; Croatia · June 2026 · Private Itinerary</footer>
+
+</body>
+</html>
